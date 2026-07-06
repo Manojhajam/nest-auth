@@ -1,0 +1,11 @@
+APIURL=http://localhost:3000
+
+###
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "name": "",
+  "email": "test@example.com",
+  "password": "password123"
+}
