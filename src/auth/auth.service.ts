@@ -31,7 +31,7 @@ export class AuthService {
       });
 
       if (!user) {
-        throw new UnauthorizedException('Invalid email or password1');
+        throw new UnauthorizedException('Invalid email or password');
       }
 
       const userJson = user.toJSON();
@@ -42,7 +42,7 @@ export class AuthService {
       );
 
       if (!isPasswordMatched) {
-        throw new UnauthorizedException('Invalid email or password2');
+        throw new UnauthorizedException('Invalid email or password');
       }
 
       const payload = {
@@ -57,8 +57,8 @@ export class AuthService {
         access_token,
       };
     } catch (error) {
-      throw new UnauthorizedException('Invalid email or password3');
-      console.log('Error during login:', error);
+      console.error('Error during login:', error);
+      throw new UnauthorizedException('Invalid email or password');
     }
   }
 }
