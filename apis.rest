@@ -5,9 +5,11 @@ GET {{APIURL}}
 
 ###
 POST {{APIURL}}/auth/register
-# Content-Type: application/json
-# {
-#   "name": "John Doe",
-#   "email": "john.doe@example.com",
-#   "password": "password123"
-# }
+Content-Type: application/json
+
+{
+  "fname": "Manoj",
+  "lname": "Thakur",
+  "email": "manoj@gmail.com",
+  "password": "password"
+}

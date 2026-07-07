@@ -5,11 +5,11 @@ import { Users } from './entities/user.entity';
 @Injectable()
 export class UserService {
   constructor(
-    @Inject('USERS_REPOSITORY') private readonly userRepository: typeof Users,
+    @Inject('USERS_REPOSITORY') private readonly usersRepository: typeof Users,
   ) {}
 
   async createUser(registerDto: RegisterUserDto) {
-    const existingUser = await this.userRepository.findOne({
+    const existingUser = await this.usersRepository.findOne({
       where: { email: registerDto.email },
     });
 
@@ -17,7 +17,7 @@ export class UserService {
       throw new BadRequestException('Email already exists');
     }
 
-    const newUser = await this.userRepository.create({
+    const newUser = await this.usersRepository.create({
       ...registerDto,
       password: registerDto.password
     } as unknown as Users);
