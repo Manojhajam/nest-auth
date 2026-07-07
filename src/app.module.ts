@@ -4,8 +4,7 @@ import { AppService } from './app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
-
-console.log(process.env.DB_PASSWORD);
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -25,6 +24,8 @@ console.log(process.env.DB_PASSWORD);
     }),
 
     AuthModule,
+
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
