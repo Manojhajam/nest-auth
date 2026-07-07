@@ -10,23 +10,23 @@ export class Users extends Model<Users> {
         type: DataType.STRING,
         allowNull: false,
     })
-    declare fname: string;
+    fname!: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
     })
-    declare lname: string;
+    lname!: string;
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
         unique: true,
     })
-    declare email: string;
+    email!: string;
     @Column({
         type: DataType.STRING,
         allowNull: false,
     })
-    declare password: string;
+    password!: string;
 }
