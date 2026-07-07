@@ -13,3 +13,12 @@ Content-Type: application/json
   "email": "manoj@gmail.com",
   "password": "password"
 }
+
+###
+POST {{APIURL}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "manoj@gmail.com",
+  "password": "password"
+}

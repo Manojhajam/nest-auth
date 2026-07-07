@@ -10,3 +10,10 @@ export class RegisterUserDto {
     @IsString()
     password: string | undefined ;
 }
+
+export class LoginUserDto {
+    @IsEmail()
+    email: string | undefined ;
+    @IsString()
+    password: string | undefined ;
+}
