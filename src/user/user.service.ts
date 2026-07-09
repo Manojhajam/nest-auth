@@ -24,4 +24,16 @@ export class UserService {
 
     return {message: 'User registered successfully', user: newUser};
   }
+
+  async getProfile(userId: number) {
+    const user = await this.usersRepository.findByPk(userId, {
+      attributes: { exclude: ['password'] },
+    });
+
+    if (!user) {
+      throw new BadRequestException('User not found');
+    }
+
+    return user;
+  }
 }
