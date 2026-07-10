@@ -22,3 +22,9 @@ Content-Type: application/json
   "email": "manoj@gmail.com",
   "password": "password"
 }
+
+###
+GET {{APIURL}}/auth/profile
+
+###
+GET {{APIURL}}/courses
