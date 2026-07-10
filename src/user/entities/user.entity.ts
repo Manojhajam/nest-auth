@@ -29,4 +29,11 @@ export class Users extends Model<Users> {
         allowNull: false,
     })
     password!: string;
+
+    @Column({
+        type: DataType.ENUM('Admin','Student','User'),
+        allowNull: false,
+        defaultValue: 'User',
+    })
+    role!: string;
 }
