@@ -22,11 +22,7 @@ export class CoursesController {
 
   @Get()
   findAll() {
-    const data = this.coursesService.findAll();
-    return {
-      message: 'Courses retrieved successfully',
-      data,
-    };
+    return this.coursesService.findAll();
   }
 
   @Get(':id')

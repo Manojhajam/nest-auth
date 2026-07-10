@@ -13,9 +13,12 @@ export class CoursesService {
     return this.coursesRepository.create(createCourseDto as Courses);
   }
 
-  findAll() {
-    const data = this.coursesRepository.findAll();
-    return data;
+  async findAll() {
+    const data = await this.coursesRepository.findAll();
+    return {
+      message: 'Courses retrieved successfully',
+      data,
+    };
   }
 
   findOne(id: number) {
