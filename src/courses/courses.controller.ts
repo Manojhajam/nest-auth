@@ -21,8 +21,12 @@ export class CoursesController {
   }
 
   @Get()
-  findAll() {
-    return this.coursesService.findAll();
+  async findAll() {
+    const data = await this.coursesService.findAll();
+    return {
+      message: 'Courses retrieved successfully',
+      data,
+    };
   }
 
   @Get(':id')
