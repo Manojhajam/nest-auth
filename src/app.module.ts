@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { DatabaseModule } from './database/database.module';
+import { CourseModule } from './course/course.module';
 
 
 
@@ -14,7 +15,7 @@ import { DatabaseModule } from './database/database.module';
     envFilePath: '.env',
     isGlobal: true,
     load: [configuration]
-  }),DatabaseModule, AuthModule, UserModule],
+  }),DatabaseModule, AuthModule, UserModule, CourseModule],
   
   controllers: [AppController],
   providers: [AppService],
