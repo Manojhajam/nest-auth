@@ -9,8 +9,10 @@ export class CoursesService {
     @Inject('COURSES_REPOSITORY')
     private readonly coursesRepository: typeof Courses,
   ) {}
-  create(createCourseDto: CreateCourseDto) {
-    return this.coursesRepository.create(createCourseDto as Courses);
+  async create(createCourseDto: CreateCourseDto) {
+    const data = await this.coursesRepository.create(createCourseDto as Courses);
+    return { message: 'Course created successfully',
+      data: data };
   }
 
    findAll() {
@@ -19,14 +21,22 @@ export class CoursesService {
   }
 
   findOne(id: number) {
-    return this.coursesRepository.findByPk(id);
+    const data = this.coursesRepository.findByPk(id);
+    return data;
   }
 
-  update(id: number, updateCourseDto: UpdateCourseDto) {
-    return this.coursesRepository.update(updateCourseDto, { where: { id } });
+  async update(id: number, updateCourseDto: UpdateCourseDto) {
+    const data = await this.coursesRepository.update(updateCourseDto, { where: { id } });
+    return {
+      message: 'Course updated successfully',
+      data: await this.findOne(id),
+    };
   }
 
-  remove(id: number) {
-    return this.coursesRepository.destroy({ where: { id } });
+  async remove(id: number) {
+    const data = await this.coursesRepository.destroy({ where: { id } });
+    return {
+      message: 'Course deleted successfully'
+    };
   }
 }

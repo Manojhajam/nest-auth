@@ -16,8 +16,8 @@ export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
   @Post()
-  create(@Body() createCourseDto: CreateCourseDto) {
-    return this.coursesService.create(createCourseDto);
+  async create(@Body() createCourseDto: CreateCourseDto) {
+    return await this.coursesService.create(createCourseDto);
   }
 
   @Get()
