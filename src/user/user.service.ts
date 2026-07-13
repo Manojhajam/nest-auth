@@ -19,10 +19,10 @@ export class UserService {
 
     const newUser = await this.usersRepository.create({
       ...registerDto,
-      password: registerDto.password
+      password: registerDto.password,
     } as unknown as Users);
 
-    return {message: 'User registered successfully', user: newUser};
+    return { message: 'User registered successfully', user: newUser };
   }
 
   async getProfile(userId: number) {

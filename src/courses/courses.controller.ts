@@ -16,7 +16,6 @@ import { Role } from 'src/auth/roles.enum';
 import { Roles } from 'src/auth/roles.decorator';
 import { RolesGuard } from 'src/auth/role.guard';
 
-
 @Controller('courses')
 export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}

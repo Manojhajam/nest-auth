@@ -10,12 +10,13 @@ export class CoursesService {
     private readonly coursesRepository: typeof Courses,
   ) {}
   async create(createCourseDto: CreateCourseDto) {
-    const data = await this.coursesRepository.create(createCourseDto as Courses);
-    return { message: 'Course created successfully',
-      data: data };
+    const data = await this.coursesRepository.create(
+      createCourseDto as Courses,
+    );
+    return { message: 'Course created successfully', data: data };
   }
 
-   findAll() {
+  findAll() {
     const data = this.coursesRepository.findAll();
     return data;
   }
@@ -26,7 +27,9 @@ export class CoursesService {
   }
 
   async update(id: number, updateCourseDto: UpdateCourseDto) {
-    const data = await this.coursesRepository.update(updateCourseDto, { where: { id } });
+    const data = await this.coursesRepository.update(updateCourseDto, {
+      where: { id },
+    });
     return {
       message: 'Course updated successfully',
       data: await this.findOne(id),
@@ -36,7 +39,7 @@ export class CoursesService {
   async remove(id: number) {
     const data = await this.coursesRepository.destroy({ where: { id } });
     return {
-      message: 'Course deleted successfully'
+      message: 'Course deleted successfully',
     };
   }
 }

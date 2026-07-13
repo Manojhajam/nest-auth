@@ -1,5 +1,4 @@
-
-export default ()=>({
+export default () => ({
   database: {
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
@@ -7,5 +6,5 @@ export default ()=>({
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,
     useSSL: process.env.DB_SSL === 'true',
-  }
-})
+  },
+});

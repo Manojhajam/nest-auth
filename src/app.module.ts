@@ -7,16 +7,22 @@ import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { DatabaseModule } from './database/database.module';
 import { CoursesModule } from './courses/courses.module';
-
-
+import { VisitorModule } from './visitor/visitor.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({
-    envFilePath: '.env',
-    isGlobal: true,
-    load: [configuration]
-  }),DatabaseModule, AuthModule, UserModule, CoursesModule],
-  
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
+      load: [configuration],
+    }),
+    DatabaseModule,
+    AuthModule,
+    UserModule,
+    CoursesModule,
+    VisitorModule,
+  ],
+
   controllers: [AppController],
   providers: [AppService],
 })
