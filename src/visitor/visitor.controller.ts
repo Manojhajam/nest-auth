@@ -21,7 +21,6 @@ export class VisitorController {
   constructor(private readonly visitorService: VisitorService) {}
 
   @Post()
-  @UseGuards(AuthGuard)
   async create(@Body() createVisitorDto: CreateVisitorDto) {
     return await this.visitorService.create(createVisitorDto);
   }
