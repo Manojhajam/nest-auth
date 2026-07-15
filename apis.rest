@@ -8,10 +8,10 @@ POST {{APIURL}}/auth/register
 Content-Type: application/json
 
 {
-  "fname": "Manoj",
-  "lname": "Thakur",
-  "email": "manoj@gmail.com",
-  "password": "password"
+  "fname": "Student",
+  "lname": "student",
+  "email": "student@gmail.com",
+  "password": "12345678"
 }
 
 ###
