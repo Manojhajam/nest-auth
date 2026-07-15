@@ -7,10 +7,12 @@ import {
   Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { VisitorService } from './visitor.service';
 import { CreateVisitorDto } from './dto/create-visitor.dto';
 import { UpdateVisitorDto } from './dto/update-visitor.dto';
+import { QueryVisitorDto } from './dto/query-visitor.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { Role } from 'src/auth/roles.enum';
 import { Roles } from 'src/auth/roles.decorator';
@@ -28,12 +30,8 @@ export class VisitorController {
   @Get()
   @UseGuards(AuthGuard, RolesGuard)
   @Roles(Role.Admin)
-  async findAll() {
-    const data = await this.visitorService.findAll();
-    return {
-      message: 'Visitors retrieved successfully',
-      data,
-    };
+  async findAll(@Query() query: QueryVisitorDto) {
+    return await this.visitorService.findAll(query);
   }
 
   @Get(':id')

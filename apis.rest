@@ -1,4 +1,5 @@
 @APIURL=http://localhost:4000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJtYW5vakBnbWFpbC5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3ODQxMTA4NDMsImV4cCI6MTc4NDcxNTY0M30.9lOsJxwrvCRAFhykz7Jm5-MldtajgViSEfyN7HhrDUs
 
 ###
 GET {{APIURL}}
@@ -27,4 +28,5 @@ Content-Type: application/json
 GET {{APIURL}}/auth/profile
 
 ###
-GET {{APIURL}}/courses
+GET {{APIURL}}/visitors
+Authorization: Bearer {{token}}

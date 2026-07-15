@@ -6,7 +6,6 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { DatabaseModule } from './database/database.module';
-import { CoursesModule } from './courses/courses.module';
 import { VisitorModule } from './visitor/visitor.module';
 
 @Module({
@@ -19,7 +18,6 @@ import { VisitorModule } from './visitor/visitor.module';
     DatabaseModule,
     AuthModule,
     UserModule,
-    CoursesModule,
     VisitorModule,
   ],
 
