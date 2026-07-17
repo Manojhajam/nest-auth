@@ -28,12 +28,10 @@ import { Roles } from 'src/auth/roles.decorator';
 import { RolesGuard } from 'src/auth/role.guard';
 
 @Controller('visitor-documents')
-@UseGuards(AuthGuard, RolesGuard)
 export class VisitorDocumentController {
   constructor(private readonly service: VisitorDocumentService) {}
 
   @Post()
-  @Roles(Role.Admin)
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
@@ -68,7 +66,9 @@ export class VisitorDocumentController {
     return this.service.create(dto, file?.filename);
   }
 
+  
   @Get()
+  @UseGuards(AuthGuard, RolesGuard)
   @Roles(Role.Admin)
   async findAll(@Query() query: QueryVisitorDocumentDto) {
     return this.service.findAll(query);
@@ -79,12 +79,14 @@ export class VisitorDocumentController {
     res.sendFile(filename, { root: 'uploads' });
   }
 
+
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
     return this.service.findOne(id);
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard, RolesGuard)
   @Roles(Role.Admin)
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -94,6 +96,7 @@ export class VisitorDocumentController {
   }
 
   @Patch(':id/verify')
+  @UseGuards(AuthGuard, RolesGuard)
   @Roles(Role.Admin)
   async verify(
     @Param('id', ParseIntPipe) id: number,
@@ -104,6 +107,7 @@ export class VisitorDocumentController {
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard, RolesGuard)
   @Roles(Role.Admin)
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.service.remove(id);
