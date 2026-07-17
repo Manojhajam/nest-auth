@@ -68,8 +68,6 @@ export class VisitorDocumentController {
 
   
   @Get()
-  @UseGuards(AuthGuard, RolesGuard)
-  @Roles(Role.Admin)
   async findAll(@Query() query: QueryVisitorDocumentDto) {
     return this.service.findAll(query);
   }
