@@ -30,10 +30,10 @@ export class Visitors extends Model<Visitors> {
   citizenship_no!: string;
 
   @Column({
-    type: DataType.ENUM('pending', 'approved', 'rejected'),
-    defaultValue: 'pending',
+    type: DataType.ENUM('CITIZEN', 'VENDOR', 'CONTRACTOR', 'NGO', 'POLICE', 'OTHER'),
+    defaultValue: 'CITIZEN',
   })
-  status!: string;
+  visitor_type!: string;
 
   @Column({
     type: DataType.STRING,
