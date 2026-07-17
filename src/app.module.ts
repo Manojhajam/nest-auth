@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import configuration from './config/configuration';
 import { DatabaseModule } from './database/database.module';
 import { VisitorModule } from './visitor/visitor.module';
+import { VisitorDocumentModule } from './visitor_documents/visitor_document.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { VisitorModule } from './visitor/visitor.module';
     AuthModule,
     UserModule,
     VisitorModule,
+    VisitorDocumentModule,
   ],
 
   controllers: [AppController],

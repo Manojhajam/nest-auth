@@ -13,6 +13,7 @@ import { Sequelize } from 'sequelize-typescript';
 import { ConfigService } from '@nestjs/config';
 import { Users } from 'src/user/entities/user.entity';
 import { Visitors } from 'src/visitor/entities/visitor.entity';
+import { VisitorDocument } from 'src/visitor_documents/entities/visitor_document.entity';
 
 export const databaseProviders = [
   {
@@ -33,7 +34,7 @@ export const databaseProviders = [
         },
       });
 
-      sequelize.addModels([Users, Visitors]);
+      sequelize.addModels([Users, Visitors, VisitorDocument]);
 
       await sequelize.sync();
 
